@@ -25,7 +25,7 @@ class puppetboard::params {
     default: { fail("The ${facts['os']['family']} operating system is not supported with the puppetboard module") }
   }
 
-  case $facts['os']['name'] {
+  case $facts['os']['family'] {
     'Debian': {
       $python_version = $facts['os']['release']['major'] ? {
         '9'  => '3.5',
